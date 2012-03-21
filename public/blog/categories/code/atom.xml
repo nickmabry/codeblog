@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: code | Bounded Optimism]]></title>
+  <link href="http://nickmabry.com/blog/categories/code/atom.xml" rel="self"/>
+  <link href="http://nickmabry.com/"/>
+  <updated>2012-03-20T19:33:56-05:00</updated>
+  <id>http://nickmabry.com/</id>
+  <author>
+    <name><![CDATA[Nick Mabry]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Hello, world!]]></title>
+    <link href="http://nickmabry.com/blog/2012/03/20/hello-world/"/>
+    <updated>2012-03-20T19:01:00-05:00</updated>
+    <id>http://nickmabry.com/blog/2012/03/20/hello-world</id>
+    <content type="html"><![CDATA[<p>This is my new blog! It has syntax highlighting, too! See:</p>
+
+<p>``` ruby Highlighting works!
+class Foo
+  def initialize()</p>
+
+<pre><code>@awesome = true
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>But does it do CoffeeScript?</p>
+
+<p><code>coffeescript CoffeeScript
+exports.quack = (duck) -&gt;
+  duck.quack()
+</code></p>
+]]></content>
+  </entry>
+  
+</feed>
