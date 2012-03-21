@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Unbounded Optimism]]></title>
-  <link href="http://nickmabry.com/atom.xml" rel="self"/>
-  <link href="http://nickmabry.com/"/>
-  <updated>2012-03-20T21:11:25-05:00</updated>
-  <id>http://nickmabry.com/</id>
+  <link href="http://www.nickmabry.com/atom.xml" rel="self"/>
+  <link href="http://www.nickmabry.com/"/>
+  <updated>2012-03-20T23:10:50-05:00</updated>
+  <id>http://www.nickmabry.com/</id>
   <author>
     <name><![CDATA[Nick Mabry]]></name>
     
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Hello, world!]]></title>
-    <link href="http://nickmabry.com/blog/2012/03/20/hello-world/"/>
+    <link href="http://www.nickmabry.com/blog/2012/03/20/hello-world/"/>
     <updated>2012-03-20T19:01:00-05:00</updated>
-    <id>http://nickmabry.com/blog/2012/03/20/hello-world</id>
+    <id>http://www.nickmabry.com/blog/2012/03/20/hello-world</id>
     <content type="html"><![CDATA[<p>This is my new blog!</p>
 
 <!--more-->
