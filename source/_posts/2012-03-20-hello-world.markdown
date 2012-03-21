@@ -5,7 +5,9 @@ date: 2012-03-20 19:01
 comments: true
 categories: code 
 ---
-This is my new blog! It has syntax highlighting, too! See:
+This is my new blog!
+<!--more-->
+It has syntax highlighting, too! See:
 
 ``` ruby Highlighting works!
 class Foo

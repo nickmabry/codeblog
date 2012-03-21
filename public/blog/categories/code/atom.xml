@@ -4,7 +4,7 @@
   <title><![CDATA[Category: code | Bounded Optimism]]></title>
   <link href="http://nickmabry.com/blog/categories/code/atom.xml" rel="self"/>
   <link href="http://nickmabry.com/"/>
-  <updated>2012-03-20T19:33:56-05:00</updated>
+  <updated>2012-03-20T20:20:32-05:00</updated>
   <id>http://nickmabry.com/</id>
   <author>
     <name><![CDATA[Nick Mabry]]></name>
@@ -18,7 +18,12 @@
     <link href="http://nickmabry.com/blog/2012/03/20/hello-world/"/>
     <updated>2012-03-20T19:01:00-05:00</updated>
     <id>http://nickmabry.com/blog/2012/03/20/hello-world</id>
-    <content type="html"><![CDATA[<p>This is my new blog! It has syntax highlighting, too! See:</p>
+    <content type="html"><![CDATA[<p>This is my new blog!</p>
+
+<!--more-->
+
+
+<p>It has syntax highlighting, too! See:</p>
 
 <p>``` ruby Highlighting works!
 class Foo
