@@ -23,3 +23,7 @@ But does it do CoffeeScript?
 exports.quack = (duck) ->
   duck.quack()
 ```
+
+And images?
+
+{% img center /images/donking.jpg 'Monkey!' 'This is a monkey.' %}

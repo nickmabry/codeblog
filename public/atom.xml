@@ -4,7 +4,7 @@
   <title><![CDATA[Unbounded Optimism]]></title>
   <link href="http://www.nickmabry.com/atom.xml" rel="self"/>
   <link href="http://www.nickmabry.com/"/>
-  <updated>2012-03-20T23:51:33-05:00</updated>
+  <updated>2012-03-21T00:11:45-05:00</updated>
   <id>http://www.nickmabry.com/</id>
   <author>
     <name><![CDATA[Nick Mabry]]></name>
@@ -46,6 +46,10 @@
 </span><span class='line'>  <span class="nx">duck</span><span class="p">.</span><span class="nx">quack</span><span class="p">()</span>
 </span></code></pre></td></tr></table></div></figure>
 
+
+<p>And images?</p>
+
+<p><img class="center" src="http://www.nickmabry.com/images/donking.jpg" title="Monkey!" alt="This is a monkey."></p>
 ]]></content>
   </entry>
   
