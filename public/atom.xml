@@ -4,7 +4,7 @@
   <title><![CDATA[Unbounded Optimism]]></title>
   <link href="http://www.nickmabry.com/atom.xml" rel="self"/>
   <link href="http://www.nickmabry.com/"/>
-  <updated>2012-04-03T21:28:55-05:00</updated>
+  <updated>2012-04-03T21:36:32-05:00</updated>
   <id>http://www.nickmabry.com/</id>
   <author>
     <name><![CDATA[Nick Mabry]]></name>
@@ -90,46 +90,6 @@
 parentheses and curly braces to correctly pack in all of the arguments. It took a little experimentation and some helpful folks on IRC for me to tease out the correct syntax. And if you accidentally place a flash option inside of the <code>options</code> hash, then the call will succeed with an additional query parameter in the redirect url.</p>
 
 <p>I&#8217;m sure I&#8217;ll mess these up again at some point, so I&#8217;ll just leave this here for future reference.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello, world!]]></title>
-    <link href="http://www.nickmabry.com/blog/2012/03/20/hello-world/"/>
-    <updated>2012-03-20T19:01:00-05:00</updated>
-    <id>http://www.nickmabry.com/blog/2012/03/20/hello-world</id>
-    <content type="html"><![CDATA[<p>This is my new blog!</p>
-
-<!--more-->
-
-
-<p>It has syntax highlighting, too! See:</p>
-
-<figure class='code'><figcaption><span>Highlighting works!</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Foo</span>
-</span><span class='line'>  <span class="k">def</span> <span class="nf">initialize</span><span class="p">()</span>
-</span><span class='line'>    <span class="vi">@awesome</span> <span class="o">=</span> <span class="kp">true</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>But does it do CoffeeScript?</p>
-
-<figure class='code'><figcaption><span>CoffeeScript</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">exports.quack = </span><span class="nf">(duck) -&gt;</span>
-</span><span class='line'>  <span class="nx">duck</span><span class="p">.</span><span class="nx">quack</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And images?</p>
-
-<p><img class="center" src="http://www.nickmabry.com/images/donking.jpg" title="Monkey!" alt="This is a monkey."></p>
 ]]></content>
   </entry>
   
