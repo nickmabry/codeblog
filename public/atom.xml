@@ -4,7 +4,7 @@
   <title><![CDATA[Unbounded Optimism]]></title>
   <link href="http://www.nickmabry.com/atom.xml" rel="self"/>
   <link href="http://www.nickmabry.com/"/>
-  <updated>2012-03-21T00:11:45-05:00</updated>
+  <updated>2012-04-03T21:28:55-05:00</updated>
   <id>http://www.nickmabry.com/</id>
   <author>
     <name><![CDATA[Nick Mabry]]></name>
@@ -12,6 +12,86 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Rails redirect_to Hashes]]></title>
+    <link href="http://www.nickmabry.com/blog/2012/04/03/option-hashes/"/>
+    <updated>2012-04-03T19:40:00-05:00</updated>
+    <id>http://www.nickmabry.com/blog/2012/04/03/option-hashes</id>
+    <content type="html"><![CDATA[<p>I ran across a surprise when using a Rails method a few days ago:</p>
+
+<figure class='code'><figcaption><span>rails/actionpack/lib/action_controller/metal/flash.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">redirect_to</span><span class="p">(</span><span class="n">options</span> <span class="o">=</span> <span class="p">{},</span> <span class="n">response_status_and_flash</span> <span class="o">=</span> <span class="p">{})</span> <span class="c1">#:doc:</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">alert</span> <span class="o">=</span> <span class="n">response_status_and_flash</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:alert</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">flash</span><span class="o">[</span><span class="ss">:alert</span><span class="o">]</span> <span class="o">=</span> <span class="n">alert</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="n">notice</span> <span class="o">=</span> <span class="n">response_status_and_flash</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:notice</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">flash</span><span class="o">[</span><span class="ss">:notice</span><span class="o">]</span> <span class="o">=</span> <span class="n">notice</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">if</span> <span class="n">other_flashes</span> <span class="o">=</span> <span class="n">response_status_and_flash</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:flash</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">flash</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">other_flashes</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">super</span><span class="p">(</span><span class="n">options</span><span class="p">,</span> <span class="n">response_status_and_flash</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The <code>redirect_to</code> method accepts two parameters. The first is the <code>options</code> object, which will be itself an options Hash, a URL String, or the symbol <code>:back</code>. The second is the <code>response_status_and_flash</code> object, which may either be omitted or may be a Hash containing a <code>status</code> key and optional <code>:alert</code>, <code>:notice</code>, and <code>:flash</code> keys.</p>
+
+<p>An <code>options</code> hash may contain a <code>:status</code> key which will be used in lieu of the <code>response_status_and_flash</code> hash <code>:status</code> if present, but it will not supercede the flash keys. Here are some valid calls:</p>
+
+<figure class='code'><figcaption><span>Valid redirect_to Calls</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># Redirect to url with status</span>
+</span><span class='line'><span class="n">redirect_to</span> <span class="n">post_url</span><span class="p">(</span><span class="vi">@post</span><span class="p">),</span> <span class="n">status</span><span class="p">:</span> <span class="mi">301</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Redirect to url with status and flash</span>
+</span><span class='line'><span class="n">redirect_to</span> <span class="n">post_url</span><span class="p">(</span><span class="vi">@post</span><span class="p">),</span> <span class="n">status</span><span class="p">:</span> <span class="mi">301</span><span class="p">,</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;We&#39;ve moved forever!&quot;</span>
+</span><span class='line'><span class="n">redirect_to</span> <span class="n">post_url</span><span class="p">(</span><span class="vi">@post</span><span class="p">),</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;We&#39;re temporarily moved&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="mi">302</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Redirect to controller action with status</span>
+</span><span class='line'><span class="n">redirect_to</span> <span class="n">action</span><span class="p">:</span> <span class="s1">&#39;atom&#39;</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="mi">301</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Redirect to controller action with status and flash</span>
+</span><span class='line'><span class="n">redirect_to</span><span class="p">({</span><span class="n">action</span><span class="p">:</span> <span class="s1">&#39;atom&#39;</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="mi">301</span><span class="p">},</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;We&#39;ve moved forever!&quot;</span><span class="p">)</span>
+</span><span class='line'><span class="n">redirect_to</span><span class="p">({</span><span class="n">action</span><span class="p">:</span> <span class="s1">&#39;atom&#39;</span><span class="p">},</span> <span class="n">notice</span><span class="p">:</span> <span class="s2">&quot;We&#39;re temporarily moved&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="mi">302</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Did the last two surprise you? When <code>options</code> is a Hash and you would like to set the response flash, the call must be constructed with
+parentheses and curly braces to correctly pack in all of the arguments. It took a little experimentation and some helpful folks on IRC for me to tease out the correct syntax. And if you accidentally place a flash option inside of the <code>options</code> hash, then the call will succeed with an additional query parameter in the redirect url.</p>
+
+<p>I&#8217;m sure I&#8217;ll mess these up again at some point, so I&#8217;ll just leave this here for future reference.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hello, world!]]></title>

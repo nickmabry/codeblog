@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: code | Unbounded Optimism]]></title>
-  <link href="http://www.nickmabry.com/blog/categories/code/atom.xml" rel="self"/>
+  <title><![CDATA[Category: rails | Unbounded Optimism]]></title>
+  <link href="http://www.nickmabry.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://www.nickmabry.com/"/>
   <updated>2012-04-03T21:28:55-05:00</updated>
   <id>http://www.nickmabry.com/</id>
@@ -74,42 +74,6 @@ redirect_to({action: 'atom'}, notice: "We're temporarily moved", status: 302)
 parentheses and curly braces to correctly pack in all of the arguments. It took a little experimentation and some helpful folks on IRC for me to tease out the correct syntax. And if you accidentally place a flash option inside of the <code>options</code> hash, then the call will succeed with an additional query parameter in the redirect url.</p>
 
 <p>I'm sure I'll mess these up again at some point, so I'll just leave this here for future reference.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello, world!]]></title>
-    <link href="http://www.nickmabry.com/blog/2012/03/20/hello-world/"/>
-    <updated>2012-03-20T19:01:00-05:00</updated>
-    <id>http://www.nickmabry.com/blog/2012/03/20/hello-world</id>
-    <content type="html"><![CDATA[<p>This is my new blog!</p>
-
-<!--more-->
-
-
-<p>It has syntax highlighting, too! See:</p>
-
-<p>``` ruby Highlighting works!
-class Foo
-  def initialize()</p>
-
-<pre><code>@awesome = true
-</code></pre>
-
-<p>  end
-end
-```</p>
-
-<p>But does it do CoffeeScript?</p>
-
-<p><code>coffeescript CoffeeScript
-exports.quack = (duck) -&gt;
-  duck.quack()
-</code></p>
-
-<p>And images?</p>
-
-<p><img class="center" src="/images/donking.jpg" title="Monkey!" alt="This is a monkey."></p>
 ]]></content>
   </entry>
   

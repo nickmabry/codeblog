@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Unbounded Optimism</title>
+  <title>Rails redirect_to Hashes - Unbounded Optimism</title>
   <meta name="author" content="Nick Mabry">
 
   
@@ -30,7 +30,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://www.nickmabry.com">
+  <link rel="canonical" href="http://www.nickmabry.com/blog/2012/04/03/option-hashes">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -86,15 +86,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2012/04/03/option-hashes/">Rails redirect_to Hashes</a></h1>
+      <h1 class="entry-title">Rails redirect_to Hashes</h1>
     
     
       <p class="meta">
@@ -117,7 +114,7 @@
   </header>
 
 
-  <div class="entry-content"><p>I ran across a surprise when using a Rails method a few days ago:</p>
+<div class="entry-content"><p>I ran across a surprise when using a Rails method a few days ago:</p>
 
 <figure class='code'><figcaption><span>rails/actionpack/lib/action_controller/metal/flash.rb</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -190,22 +187,16 @@ parentheses and curly braces to correctly pack in all of the arguments. It took 
 
 <p>I&#8217;m sure I&#8217;ll mess these up again at some point, so I&#8217;ll just leave this here for future reference.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2012/03/20/hello-world/">Hello, world!</a></h1>
-    
-    
-      <p class="meta">
-        
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Nick Mabry</span></span>
+
+      
 
 
 
@@ -217,37 +208,53 @@ parentheses and curly braces to correctly pack in all of the arguments. It took 
   
 
 
-<time datetime="2012-03-20T19:01:00-05:00" pubdate data-updated="true">Mar 20<span>th</span>, 2012</time>
-        
-      </p>
+<time datetime="2012-04-03T19:40:00-05:00" pubdate data-updated="true">Apr 3<span>rd</span>, 2012</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/code/'>code</a>, <a class='category' href='/blog/categories/rails/'>rails</a>, <a class='category' href='/blog/categories/ruby/'>ruby</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://www.nickmabry.com/blog/2012/04/03/option-hashes/" data-via="nickmabry" data-counturl="http://www.nickmabry.com/blog/2012/04/03/option-hashes/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2012/03/20/hello-world/" title="Previous Post: Hello, world!">&laquo; Hello, world!</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-  <div class="entry-content"><p>This is my new blog!</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/03/20/hello-world/">There&#8217;s More? &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
   <h1>About Me</h1>
-  <p>I&#8217;m a nerd living in KC.</p>
+  <p>I'm a nerd living in KC.</p>
 </section>
 <section>
   <h1>Recent Posts</h1>
@@ -267,7 +274,7 @@ parentheses and curly braces to correctly pack in all of the arguments. It took 
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/nickmabry">@nickmabry</a> on GitHub
@@ -297,7 +304,7 @@ parentheses and curly braces to correctly pack in all of the arguments. It took 
 <section>
   <h1>Latest Tweets</h1>
   <ul id="tweets">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   <script type="text/javascript">
     $.domReady(function(){
@@ -326,6 +333,7 @@ parentheses and curly braces to correctly pack in all of the arguments. It took 
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -340,7 +348,10 @@ parentheses and curly braces to correctly pack in all of the arguments. It took 
       var disqus_shortname = 'nickmabry';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://www.nickmabry.com/blog/2012/04/03/option-hashes/';
+        var disqus_url = 'http://www.nickmabry.com/blog/2012/04/03/option-hashes/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
