@@ -4,7 +4,7 @@
   <title><![CDATA[Unbounded Optimism]]></title>
   <link href="http://www.nickmabry.com/atom.xml" rel="self"/>
   <link href="http://www.nickmabry.com/"/>
-  <updated>2012-07-27T13:18:27-05:00</updated>
+  <updated>2012-07-27T13:31:12-05:00</updated>
   <id>http://www.nickmabry.com/</id>
   <author>
     <name><![CDATA[Nick Mabry]]></name>
@@ -12,6 +12,24 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Robot Ninjas]]></title>
+    <link href="http://www.nickmabry.com/blog/2012/07/27/robot-ninjas/"/>
+    <updated>2012-07-27T13:25:00-05:00</updated>
+    <id>http://www.nickmabry.com/blog/2012/07/27/robot-ninjas</id>
+    <content type="html"><![CDATA[<p>This is just a test post to make sure my deployment workflow is functional.
+Will be deleted soon.</p>
+
+<h1>Headline</h1>
+
+<p>That was a headline</p>
+
+<h2>Subheadline</h2>
+
+<p>That was a subheadline. Later!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails redirect_to Hashes]]></title>
