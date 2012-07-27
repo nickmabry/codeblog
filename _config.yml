@@ -95,5 +95,8 @@ disqus_show_comment_count: false
 # Google Analytics
 google_analytics_tracking_id: UA-30136659-1
 
+# Facebook User
+facebook_user: nickmabry
+
 # Facebook Like
 facebook_like: true
