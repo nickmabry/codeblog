@@ -62,7 +62,7 @@ modify the load path to include the directories we want? Here are two common
 ways:
 
 ### 1. `> ruby -I lib runner.rb`
-The `ruby  command line executable accepts a `-I` option that includes the
+The `ruby`  command line executable accepts a `-I` option that includes the
 given directory in the `$LOAD_PATH`. The directory path given may be absolute
 or **relative to the current directory**.
 

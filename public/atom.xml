@@ -4,7 +4,7 @@
   <title><![CDATA[Unbounded Optimism]]></title>
   <link href="http://www.nickmabry.com/atom.xml" rel="self"/>
   <link href="http://www.nickmabry.com/"/>
-  <updated>2012-11-24T01:54:14-06:00</updated>
+  <updated>2012-11-24T02:03:31-06:00</updated>
   <id>http://www.nickmabry.com/</id>
   <author>
     <name><![CDATA[Nick Mabry]]></name>
@@ -83,8 +83,8 @@ ways:</p>
 
 <h3>1. <code>&gt; ruby -I lib runner.rb</code></h3>
 
-<p>The <code>ruby  command line executable accepts a</code>-I<code>option that includes the
-given directory in the</code>$LOAD_PATH`. The directory path given may be absolute
+<p>The <code>ruby</code>  command line executable accepts a <code>-I</code> option that includes the
+given directory in the <code>$LOAD_PATH</code>. The directory path given may be absolute
 or <strong>relative to the current directory</strong>.</p>
 
 <h3>2. <code>$LOAD_PATH &lt;&lt; “lib”</code></h3>
