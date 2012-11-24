@@ -4,7 +4,7 @@
   <title><![CDATA[Unbounded Optimism]]></title>
   <link href="http://www.nickmabry.com/atom.xml" rel="self"/>
   <link href="http://www.nickmabry.com/"/>
-  <updated>2012-07-27T13:35:03-05:00</updated>
+  <updated>2012-11-24T01:54:14-06:00</updated>
   <id>http://www.nickmabry.com/</id>
   <author>
     <name><![CDATA[Nick Mabry]]></name>
@@ -12,6 +12,105 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How the hell is that required? Part 1]]></title>
+    <link href="http://www.nickmabry.com/blog/2012/11/24/how-is-that-required-part-1/"/>
+    <updated>2012-11-24T01:33:00-06:00</updated>
+    <id>http://www.nickmabry.com/blog/2012/11/24/how-is-that-required-part-1</id>
+    <content type="html"><![CDATA[<p>When I dive into the codebase of an unfamiliar Ruby project, divining exactly
+how the project includes source files frequently trips me up. Where are they
+modifying the path? Do I need to use <code>require_relative</code>? Is the framework
+reloading my code? How are the tests isolating my code? Wait, what is Ruby&#8217;s
+default include path again?</p>
+
+<p>In part one of this series on Ruby source organization, I’m going to provide
+a primer on Ruby’s basic code loading mechanisms.</p>
+
+<h2>How do I load thee? Let me count the ways. Five.</h2>
+
+<p>Ruby 1.9.3 provides five mechanisms to load a source file. In each case, the
+file extension may be omitted if it is <code>.rb</code>, <code>.so</code>, or <code>.dll</code>.</p>
+
+<h3>1. <code>require_relative ‘../lib/my_source’</code></h3>
+
+<p>The <code>require_relative</code> message on the <code>Kernel</code> object is the simplest way to
+load code. It is given a file path relative to <strong>the current source file</strong>, and
+proceeds to load the source file at that location. You don’t need any
+additional information to figure out which file is loaded.</p>
+
+<h3>2. <code>require ‘my_source’</code></h3>
+
+<p>The <code>require</code> message on the <code>Kernel</code> object operates like <code>require_relative</code>,
+but does not accept paths relative to the current source file. Instead, it
+accepts either an absolute path (e.g.
+<code>’/Users/testuser/home/testproject/my_source’</code>) or a path relative to the
+folders in the VM’s <code>$LOAD_PATH</code> global variable (e.g. <code>’my_source’</code>). We’ll go
+over the <code>$LOAD_PATH</code> variable later.</p>
+
+<h3>3. <code>&gt; ruby -r my_source runner.rb</code></h3>
+
+<p>The <code>ruby</code> command line executable accepts a <code>-r</code> option that requires a source
+file equivalently to the <code>require ‘my_source’</code> code above.</p>
+
+<h3>4. <code>load ‘my_source’</code></h3>
+
+<p>The <code>load</code> message on the <code>Kernel</code> object operates like <code>require</code>, with
+a couple of differences. First, it will not propagate any local variables in
+the loaded file into the global namespace. Second, it will attempt to load and
+run a source file every time it is sent (while all of the <code>require</code> methods
+only load a file once.) And finally, it can be given a second optional argument
+of <code>true</code> to sandbox the loaded script within an anonymous module.</p>
+
+<h3>5. <code>autoload :MyClass, ‘my_source’</code></h3>
+
+<p>The <code>autoload</code> message on the <code>Kernel</code> object accepts a module name (including
+class names) as either a symbol or a string, as well as a path. It tells the VM
+to <code>Kernel#require</code> the specified path the first time that the given module is
+accessed.</p>
+
+<h2>What’s in a <code>$LOAD_PATH</code>?</h2>
+
+<p>With the exception of <code>require_relative</code>, all of these mechanisms can either
+accept an absolute path or a path relative to the directories specified in the
+global <code>$LOAD_PATH</code> variable (which can also be accessed as <code>$:</code>. The variable
+is simply an array of absolute paths and paths <strong>relative to the current
+directory</strong>.  It will by default include the standard library paths and the
+<code>lib/</code> folders of any installed gems. It will <strong>not</strong> include the current
+directory, which can seem a little counter-intuitive at first. So how do we
+modify the load path to include the directories we want? Here are two common
+ways:</p>
+
+<h3>1. <code>&gt; ruby -I lib runner.rb</code></h3>
+
+<p>The <code>ruby  command line executable accepts a</code>-I<code>option that includes the
+given directory in the</code>$LOAD_PATH`. The directory path given may be absolute
+or <strong>relative to the current directory</strong>.</p>
+
+<h3>2. <code>$LOAD_PATH &lt;&lt; “lib”</code></h3>
+
+<p>The <code>$LOAD_PATH</code> may also be modified directly by the application. We just need
+to insert a new directory path into the array. The <code>Object#__FILE__</code> message
+provides a path to the currently executing file, which gives us a way to build
+new relative directory paths:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># create a new absolute path by appending ‘lib’ to the current file’s directory</span>
+</span><span class='line'><span class="n">new_path</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">expand_path</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span> <span class="p">),</span> <span class="err">“</span><span class="n">lib</span><span class="err">”</span><span class="p">)</span>
+</span><span class='line'><span class="c1"># add the new path to the load path</span>
+</span><span class='line'><span class="vg">$LOAD_PATH</span> <span class="o">&lt;&lt;</span> <span class="n">new_path</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Up next</h2>
+
+<p>That&#8217;s it for Ruby&#8217;s built-in code loading mechanics. In part two of this
+series, I&#8217;ll explore common project organization patterns and idioms.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Rails redirect_to Hashes]]></title>
